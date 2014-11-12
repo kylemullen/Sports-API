@@ -3,25 +3,29 @@ class SportsController < ApplicationController
 
 	def show
 	  @sport = Sport.find_by(:id => params[:id])
-	  respond_with(@sport)
+	  #respond_with(@sport)
 	 end
 
 	def index
 	  @sports = Sport.all
-	  respond_with(@sports)
+	  # respond_with(@sports)
 	 end
 
 	def create
-		@sport = Sport.create(sport_params)
-		respond_with(@sport)
+ 	  @sport = Sport.create(sport_params)
+	  respond_with(@sport)
 	end
 
 	def destroy
-		@sport = Sport.find_by(:id => params[:id])
-		@sport.destroy
-		respond_with(@sport)
+	  @sport = Sport.find_by(:id => params[:id])
+	  @sport.destroy
+	  # respond_with(@sport)
+	end
 
-
+	def update
+	  @sport = Sport.find_by(:id => params[:id])
+	  @sport.update(sport_params)
+	  respond_with(@sport)
 	end
 
 	private

@@ -1,0 +1,1 @@
+json.partial! @sport, partial: 'sport', as: :sport
