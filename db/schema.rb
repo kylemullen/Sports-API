@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111005316) do
+ActiveRecord::Schema.define(version: 20141203013559) do
 
   create_table "sports", force: true do |t|
     t.string   "name"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20141111005316) do
     t.integer  "players"
     t.string   "court"
     t.string   "created_in"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "description_visible", default: false
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "api_key"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

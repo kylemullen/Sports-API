@@ -1,0 +1,18 @@
+<h1>Sports List</h1>
+
+<div ng-app="app">
+	<div ng-controller="sportsCtrl">
+		<ul>
+			<li ng-repeat="sport in sports" ng-click="showSportDetails"> {{ sport.name }} </li>
+		</ul>
+
+		<label>Sport Name:</label>
+    <input ng-model="sportTitle">
+    <label>Details:</label>
+    <input type="textarea" ng-model="sportDescription">
+    <label>Players</label>
+    <input ng-model="sportPlayers">
+    <button ng-click="addSport(sportTitle, sportDescription, sportPlayers)">Add Sport</button>
+
+		<p>Total Sports: </p>
+</div>
