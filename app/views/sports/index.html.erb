@@ -2,10 +2,30 @@
 
 <div ng-app="app">
 	<div ng-controller="sportsCtrl">
-		<ul>
-			<li ng-repeat="sport in sports" ng-click="showSportDetails"> {{ sport.name }} </li>
-		</ul>
 
+	<button ng-click="changeOrder('name')">Sort By Name</button>
+	<button ng-click="changeOrder('players')">Sort By Players</button>
+
+	<label>Search:</label>
+	<input ng-model="sportFilter">
+			<table>
+				<tr>
+					<th>Sport</th>
+					<th>Players</th>
+					<th>Court</th>
+				</tr>
+
+			<tr ng-repeat="sport in sports | filter: { name: sportFilter } | orderBy:orderAttribute:sortDirection">
+					<td>{{ sport.name }}</td>
+					<td>{{ sport.players }}</td>
+					<td>{{ sport.court }}</td>
+			</tr>
+
+			</div>
+
+		</table>
+
+	<h2> Add a New Sport </h2>
 		<label>Sport Name:</label>
     <input ng-model="sportTitle">
     <label>Details:</label>

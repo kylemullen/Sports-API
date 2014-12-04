@@ -7,6 +7,8 @@
 			$scope.sports = response.data;
 		});
 
+    $scope.sportVisible =
+
 		$scope.addSport = function(sportTitle, sportDescription, sportPlayers) {
       var newSport = { name: sportTitle, description: sportDescription, players: sportPlayers};
       $http.post('/api/v1/sports.json', {sport: newSport}).then(function(response) {
@@ -21,6 +23,12 @@
       $scope.sportPlayers = "";
 
     };
+    
+    $scope.changeOrder = function(attribute) {
+      $scope.orderAttribute = attribute;
+      $scope.sortDirection = !$scope.sortDirection;
+    };
+
 		window.scope = $scope;
 
 	 });
