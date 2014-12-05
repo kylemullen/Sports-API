@@ -2,7 +2,6 @@
 
 <div ng-app="app">
 	<div ng-controller="sportsCtrl">
-
 	<button ng-click="changeOrder('name')">Sort By Name</button>
 	<button ng-click="changeOrder('players')">Sort By Players</button>
 
@@ -20,19 +19,21 @@
 					<td>{{ sport.players }}</td>
 					<td>{{ sport.court }}</td>
 			</tr>
-
 			</div>
-
 		</table>
-
+		
 	<h2> Add a New Sport </h2>
+		<div ng-if="errors">
+			<p> Hey Man I need More Info </p>
+		</div>
+
 		<label>Sport Name:</label>
-    <input ng-model="sportTitle">
-    <label>Details:</label>
-    <input type="textarea" ng-model="sportDescription">
+    	<input ng-model="sportTitle">
+    <label>Court:</label>
+    	<input type="textarea" ng-model="sportCourt">
     <label>Players</label>
-    <input ng-model="sportPlayers">
-    <button ng-click="addSport(sportTitle, sportDescription, sportPlayers)">Add Sport</button>
+    	<input ng-model="sportPlayers">
+    <button ng-click="addSport(sportTitle, sportCourt, sportPlayers)">Add Sport</button>
 
 		<p>Total Sports: </p>
 </div>

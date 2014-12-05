@@ -17,8 +17,11 @@ class Api::V1::SportsController < ApplicationController
 	 end
 
 	def create
- 	  @sport = Sport.create(sport_params)
-	  respond_with(@sport)
+ 	  @sport = Sport.new(sport_params)
+	  if @sport.save
+	  else
+      render json: { errors: @sport.errors.full_messages }, status: 422
+    end
 	end
 
 	def destroy
